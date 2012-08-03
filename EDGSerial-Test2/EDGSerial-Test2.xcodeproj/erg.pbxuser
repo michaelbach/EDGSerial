@@ -1,0 +1,99 @@
+// !$*UTF8*$!
+{
+	3EA7CF0713EA84C60070F680 /* EDGSerial-Test2 */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "EDGSerial-Test2";
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	3EA7CF1A13EA84D30070F680 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	3EA7CF1B13EA84D30070F680 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	8AAB876913E6B5ED00DA023A /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 3EA7CF0713EA84C60070F680 /* EDGSerial-Test2 */;
+		activeTarget = 8AAB877113E6B5ED00DA023A /* EDGSerial-Test2 */;
+		codeSenseManager = 3EA7CF1B13EA84D30070F680 /* Code sense */;
+		executables = (
+			3EA7CF0713EA84C60070F680 /* EDGSerial-Test2 */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					584,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 334138262;
+			PBXWorkspaceStateSaveDate = 334138262;
+		};
+		sourceControlManager = 3EA7CF1A13EA84D30070F680 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8AAB877113E6B5ED00DA023A /* EDGSerial-Test2 */ = {
+		activeExec = 0;
+		executables = (
+			3EA7CF0713EA84C60070F680 /* EDGSerial-Test2 */,
+		);
+	};
+	8AAB878913E6B5ED00DA023A /* EDGSerial_Test2AppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1027, 966}}";
+			sepNavSelRange = "{707, 0}";
+			sepNavVisRange = "{436, 883}";
+			sepNavWindowFrame = "{{15, 0}, {1140, 1023}}";
+		};
+	};
+}
