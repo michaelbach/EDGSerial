@@ -12,7 +12,7 @@
 
 @interface EDGSerial_Test2AppDelegate : NSObject <NSApplicationDelegate> {
 @private
-	NSWindow *window;
+	NSWindow *__unsafe_unretained window;
 	EDGSerial *_serialPort;
 	bool	_hardwareOk;
 	
@@ -33,6 +33,6 @@
 
 @property bool autoToggling;
 
-@property (assign) IBOutlet NSWindow *window;
+@property (unsafe_unretained) IBOutlet NSWindow *window;
 
 @end

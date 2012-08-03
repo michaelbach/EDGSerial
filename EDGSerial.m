@@ -98,6 +98,7 @@ static NSString *selectedPort;
 
 
 - (id) initKeyspanUSAWithPortNumber: (NSUInteger) portNumber {
+	self = nil;
 	if ([self init])
 		if (_numberOfSerialPorts > portNumber)
 			[self openPortNumber: portNumber];
@@ -106,7 +107,8 @@ static NSString *selectedPort;
 
 
 - (id) initWithName: (NSString *) theName {
-	if ([self init]) {
+	self = nil;
+	if ([self init] != nil) {
 		if (_numberOfSerialPorts > 0) {
 				BOOL success = [self openWithName: theName];
 			if (success) return self;
