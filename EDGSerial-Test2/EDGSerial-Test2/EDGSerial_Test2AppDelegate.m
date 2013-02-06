@@ -11,11 +11,14 @@
 @implementation EDGSerial_Test2AppDelegate
 
 
+dispatch_source_t gdcTimerTimingtest;
+
+
 @synthesize window, autoToggling;
 
 
 
-- (void) handleToggleTimer: (NSTimer *) timer {
+- (void) handleToggleTimer: (NSTimer *) timer {NSLog(@"%s", __PRETTY_FUNCTION__);
 #pragma unused (timer)
 	if (!autoToggling) return;
 	[self toggleDTR_Action: NULL];
@@ -23,7 +26,7 @@
 }
 
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {	//	NSLog(@"EDGSerial_Test2AppDelegate>applicationDidFinishLaunching\n");
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {	NSLog(@"%s", __PRETTY_FUNCTION__);
 	_hardwareOk = false;
 	//	_serialPort = [[EDGSerial alloc] initWithName: @portName];	// Port for DTR + RTS control (flash & on)
 	_serialPort = [[EDGSerial alloc] init];	// Port for DTR + RTS control (flash & on)
@@ -51,9 +54,18 @@
 	autoToggling = NO;
 	
 	[self toggleDTR_Action: NULL];
-	toggleTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(handleToggleTimer:) userInfo:NULL repeats:YES];
-}
 
+	toggleTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(handleToggleTimer:) userInfo:NULL repeats:YES];
+	
+	if (NO) {	// this speed test reveals that toggling every 4 ms is possible
+		gdcTimerTimingtest = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
+		dispatch_source_set_timer(gdcTimerTimingtest, dispatch_time(DISPATCH_TIME_NOW, 0), /*interv*/ 4000000ull , /*leeway*/ 10ull);
+		dispatch_source_set_event_handler(gdcTimerTimingtest, ^{
+			[_serialPort toggleDTR];
+		});
+		dispatch_resume(gdcTimerTimingtest);
+	}
+}
 
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
@@ -65,22 +77,20 @@
 
 
 
-- (IBAction) toggleDTR_Action: (id) sender {	//	NSLog(@"MainController toggleDTR\n");
-#pragma unused(sender)
+- (IBAction) toggleDTR_Action: (id) sender {	NSLog(@"%s", __PRETTY_FUNCTION__);
 	[_serialPort toggleDTR];
 	[checkBoxDTR_Outlet setState: [_serialPort DTR]];
 }
-- (IBAction) toggleRTS_Action: (id) sender {	//	NSLog(@"MainController toggleRTS\n");
-#pragma unused(sender)
+- (IBAction) toggleRTS_Action: (id) sender {	NSLog(@"%s", __PRETTY_FUNCTION__);
 	[_serialPort toggleRTS];
 	[checkBoxRTS_Outlet setState: [_serialPort RTS]];
 }
 
 
-- (IBAction) checkBoxDTR_Action: (id) sender {	NSLog(@"MainController checkBoxDTR\n");
+- (IBAction) checkBoxDTR_Action: (id) sender {	NSLog(@"%s", __PRETTY_FUNCTION__);
 	[_serialPort setDTR: [sender state]];
 }
-- (IBAction) checkBoxRTS_Action: (id) sender {	NSLog(@"MainController checkBoxRTS\n");
+- (IBAction) checkBoxRTS_Action: (id) sender {	NSLog(@"%s", __PRETTY_FUNCTION__);
 	[_serialPort setRTS: [sender state]];
 }
 

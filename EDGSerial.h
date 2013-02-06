@@ -8,6 +8,7 @@
 //	History
 //	=======
 //
+//	2012-11-15	checked on speed. It is possible to toggle DTR every 4 ms (10% faster already becomes a problem)
 //	2012-08-03	minor code change to avoid warning about unitialised self
 //	2011-07-04	changed names to indicated special treatment of Keyspan's USAs
 //	2011-07-29	automatically reads pertinent device names and accesses up to 4 Keyspan USA ports (only 1 device allowed)
